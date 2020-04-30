@@ -17,6 +17,10 @@ public class Livraria {
         }
     }
 
+    public void AdicionaLivro (Livro livro){
+        LLivros.add(livro);
+    }
+
     public static Livraria getInstance() {
         if (instance == null) {
             synchronized (Livraria.class) {
@@ -67,5 +71,16 @@ public class Livraria {
             return ReqLivro;
         }
         return null;
+    }
+
+    public synchronized int ProcuraLivro (Livro livro) {
+        if (LLivros.contains(livro)){
+            //System.out.println("O livro existe");
+            return 1;
+        }
+        else{
+            //System.out.println("O livro não existe");
+            return 0;
+        }
     }
 }
